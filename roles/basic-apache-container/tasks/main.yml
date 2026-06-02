@@ -1,0 +1,24 @@
+---
+- name: Étape 1 - Préparation de l'environnement Ubuntu
+  include_tasks: setup-ubuntu.yml
+
+- name: Étape 2 - Installation des composants Docker
+  include_tasks: install-docker.yml
+
+- name: Étape 3 - Génération du fichier d'accueil (Template)
+  template:
+    src: "{{ file_template }}"
+    dest: "/home/{{ system_user }}/index.html"
+    owner: "{{ system_user }}"
+    mode: '0644'
+
+- name: Étape 4 - Déploiement et lancement du conteneur Apache
+  docker_container:
+    name: webapp
+    image: httpd:latest
+    state: started
+    restart_policy: always
+    published_ports:
+      - "{{ webapp_port }}:{{ apache_port }}"
+    volumes:
+      - "/home/{{ system_user }}/index.html:/usr/local/apache2/htdocs/index.html"

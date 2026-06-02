@@ -1,0 +1,19 @@
+---
+- name: Vérifier que le système est bien Ubuntu
+  fail:
+    msg: "Ce rôle est conçu uniquement pour Ubuntu !"
+  when: ansible_distribution != "Ubuntu"
+
+- name: Mettre à jour le cache des paquets et installer les outils requis
+  apt:
+    update_cache: yes
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - wget
+      - git
+      - python3
+      - python3-pip
+    state: present

@@ -1,0 +1,24 @@
+---
+- name: Installer le moteur Docker et Docker-Compose via APT
+  apt:
+    name:
+      - docker.io
+      - docker-compose
+    state: present
+
+- name: Installer le SDK Python pour Docker (requis par Ansible)
+  pip:
+    name: docker
+    executable: pip3
+
+- name: S'assurer que le service Docker est démarré et actif
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Autoriser l'utilisateur vagrant à utiliser Docker
+  user:
+    name: "{{ system_user }}"
+    groups: docker
+    append: yes

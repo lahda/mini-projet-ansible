@@ -1,0 +1,6 @@
+---
+# Ports par défaut pour le conteneur Apache
+webapp_port: 80
+apache_port: 80
+file_template: index.html.j2
+welcome: "Bienvenue sur la page web gérée par Ansible"
