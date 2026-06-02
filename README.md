@@ -376,7 +376,7 @@ GPLv3 - Voir le fichier LICENSE dans le rôle `basic-apache-container`
 
 ## 👤 Auteur
 
-Projet créé par l'équipe de formation EAZY Training
+Projet créé par Alphonsine Lahda Consultante Cloud DevOps & Formatrice
 
 ---
 
