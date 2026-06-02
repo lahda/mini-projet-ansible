@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant":{"mount_options":["dmode=0755","fmode=0644","_netdev","_netdev","uid=1000","gid=1000","_netdev"],"guestpath":"/vagrant","hostpath":"C:/Users/EAZYTraining/cursus-devops/vagrant/ansible/ansible_ubuntu22","disabled":false,"__vagrantfile":true}}}
