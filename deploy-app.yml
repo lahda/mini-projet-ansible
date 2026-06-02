@@ -1,0 +1,5 @@
+---
+- hosts: "{{ target_hosts | default('prod') }}"
+  become: true
+  roles:
+    - role: basic-apache-container
